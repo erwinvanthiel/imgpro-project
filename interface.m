@@ -79,7 +79,12 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 axes(handles.axes1);
-image1 = process(imread('images/plate.jpg'));
-image(image1);
+%image1 = process(imread('images/plate.jpg'));
+%image2 = process(imread('images/bmw.jpg'));
+image3 = process(imread('images/sc1.JPG'));
+%image4 = process(imread('images/sc2.JPG'));
+%image5 = process(imread('images/sc3.JPG'));
+%image6 = process(imread('images/sc4.JPG'));
+image(image3);
 %read(imread('images/plate.jpg'));
 
