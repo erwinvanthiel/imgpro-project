@@ -1,7 +1,7 @@
-function read = read(image_dir)
+function read = read(image)
 %READ Summary of this function goes here
 %   Detailed explanation goes here
-process(imread(image_dir));
+process(image);
 read = '08-lz-gb';
 end
 
