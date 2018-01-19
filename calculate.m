@@ -19,7 +19,10 @@ bup =  b>12;
 blower2 = b < 0.9*r -15;
 b2 = blower.*bup.*blower2;
 
-calculate = r2 .* g2 .* b2;
+calculate2 = r2 .* g2 .* b2;
+calculate2 = uint8(opening(closing(calculate2,50),20));
+
+calculate = cat(3,image(:,:,1).*uint8(calculate2), image(:,:,2).*uint8(calculate2), image(:,:,3).*uint8(calculate2));
 
 
 end
