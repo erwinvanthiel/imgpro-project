@@ -5,7 +5,7 @@ image2 = imread('images/yellow16.jpg');
 image4 = imread('images/yelllow13.jpg');
 image5 = imread('images/yellow12.jpg');
 image6 = imread('images/yellow14.jpg');
-image7 = imread('images/background2.jpg');
+image7 = imread('images/background3.jpg');
 image3 = imread('images/sc1.JPG');
 
 r = image3(:,:,1);
@@ -48,7 +48,7 @@ blueb = image7(:,:,3);
 
 subplot(2,2,1);
 scatter(red(:),blue(:),'+');
-title('red blue');
+title('X: Red, Y: Blue');
 hold on
 scatter(red4(:),blue4(:),'+');
 hold on 
@@ -62,7 +62,7 @@ hold off
 
 subplot(2,2,2);
 scatter(green(:),red(:),'+');
-title('green red');
+title('X: Green, Y: Red');
 hold on
 scatter(green4(:),red4(:),'+');
 hold on 
@@ -75,7 +75,7 @@ hold off
 
 subplot(2,2,3);
 scatter(blue(:),green(:),'+');
-title('blue green');
+title('X: Blue, Y: Green');
 hold on
 scatter(blue4(:),green4(:),'+');
 hold on 
@@ -86,8 +86,6 @@ hold on
 scatter(blueb(:),greenb(:),'+');
 hold off
 
-subplot(2,2,4)
-image(blackwhite)
 
 %image2 = bilateralf(image);
 process = uint8(image);

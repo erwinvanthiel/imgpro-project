@@ -24,6 +24,5 @@ calculate2 = uint8(opening(closing(calculate2,50),20));
 
 calculate = cat(3,image(:,:,1).*uint8(calculate2), image(:,:,2).*uint8(calculate2), image(:,:,3).*uint8(calculate2));
 
-
 end
 
