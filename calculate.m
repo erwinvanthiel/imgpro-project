@@ -65,6 +65,7 @@ angle = atan2(deltay,deltax)*180/pi;
 calculate = imrotate(uint8(calculate),angle);
 calculate(all(~calculate,2),:) = [];
 calculate(:,all(~calculate,1)) = [];
+calculate = label(uint8(calculate));
 toc
 end
 

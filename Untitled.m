@@ -1,7 +1,6 @@
-blackwhite = calculate(imread('images/bmw.JPG'));
+blackwhite = calculate(imread('images/drie.JPG'));
 subplot(2,2,1);
 imagesc(uint8(blackwhite));
-%disp('1')
 %sc2
 blackwhite = calculate(imread('images/twee.JPG'));
 subplot(2,2,2);
