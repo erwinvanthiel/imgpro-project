@@ -22,7 +22,7 @@ function varargout = interface(varargin)
 
 % Edit the above text to modify the response to help interface
 
-% Last Modified by GUIDE v2.5 11-Jan-2018 11:47:30
+% Last Modified by GUIDE v2.5 24-Jan-2018 19:03:15
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -52,9 +52,12 @@ function interface_OpeningFcn(hObject, eventdata, handles, varargin)
 % handles    structure with handles and user data (see GUIDATA)
 % varargin   command line arguments to interface (see VARARGIN)
 
-handles.vid= vid;
 % Choose default command line output for interface
 handles.output = hObject;
+
+
+vid = videoinput('winvideo');
+handles.vid = vid;
 
 % Update handles structure
 guidata(hObject, handles);
@@ -80,9 +83,44 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 axes(handles.axes1);
+axes(handles.axes2);
+counter = 0;
+FrameRate = 1;
+video = VideoReader('images/TrainingVideo.avi');
+while hasFrame(video)
+    vidFrame = readFrame(video);
+    image(vidFrame,'Parent',handles.axes1);
+    if counter==10
+        image(calculate(vidFrame),'Parent',handles.axes2);
+        counter = 0;
+    end
+    axes1.Visible='off';
+    pause(0.1);
+    counter= counter + 1;
+end
 
-handles.vid = videoinput(training.
-
-image(image3);
+start(vid);
 
 
+
+% --- Executes on selection change in listbox1.
+function listbox1_Callback(hObject, eventdata, handles)
+% hObject    handle to listbox1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns listbox1 contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from listbox1
+
+
+% --- Executes during object creation, after setting all properties.
+function listbox1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to listbox1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: listbox controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
