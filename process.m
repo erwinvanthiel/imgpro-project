@@ -1,8 +1,8 @@
 function process = process( image )
 %PROCESS Summary of this function goes here
 %   Detailed explanation goes here
-image2 = calculate(imread('images/twee.jpg'));
-image4 = calculate(imread('images/yellow12.jpg'));
+image2 = calculate(imread('images/sc2.jpg'));
+image4 = calculate(imread('images/yellow21.jpg'));
 image5 = calculate(imread('images/sc4.jpg'));
 image6 = calculate(imread('images/sc3.jpg'));
 image7 = calculate(imread('images/sc2.jpg'));
