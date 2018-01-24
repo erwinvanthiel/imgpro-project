@@ -22,7 +22,15 @@ b2 = blower.*bup.*blower2;
 calculate2 = r2 .* g2 .* b2;
 calculate2 = uint8(opening(closing(calculate2,50),20));
 
+
 calculate = cat(3,image(:,:,1).*uint8(calculate2), image(:,:,2).*uint8(calculate2), image(:,:,3).*uint8(calculate2));
+%calculate = bilateralf(calculate,3,10,3,'pwlinear')
+%calculate = rgb2gray(uint8(calculate));
+%calculate(all(~calculate,2),:) = [];
+%calculate(:,all(~calculate,1)) = []; 
+%calculate = threshold(calculate,'fixed',115);
+%calculate = calculate-erosion(calculate);
+image2 = imread('images/yellow16.jpg');
 
 end
 

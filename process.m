@@ -1,12 +1,12 @@
 function process = process( image )
 %PROCESS Summary of this function goes here
 %   Detailed explanation goes here
-image2 = imread('images/yellow16.jpg');
-image4 = imread('images/yelllow13.jpg');
-image5 = imread('images/yellow12.jpg');
-image6 = imread('images/yellow14.jpg');
-image7 = imread('images/background3.jpg');
-image3 = imread('images/sc1.JPG');
+image2 = calculate(imread('images/twee.jpg'));
+image4 = calculate(imread('images/yellow12.jpg'));
+image5 = calculate(imread('images/sc4.jpg'));
+image6 = calculate(imread('images/sc3.jpg'));
+image7 = calculate(imread('images/sc2.jpg'));
+image3 = calculate(imread('images/sc1.JPG'));
 
 r = image3(:,:,1);
 g = image3(:,:,2);
@@ -51,12 +51,12 @@ scatter(red(:),blue(:),'+');
 title('X: Red, Y: Blue');
 hold on
 scatter(red4(:),blue4(:),'+');
-hold on 
-scatter(red5(:),blue5(:),'+');
-hold on
-scatter(red6(:),blue6(:),'+');
-hold on
-scatter(redb(:),blueb(:),'+');
+%hold on 
+%scatter(red5(:),blue5(:),'+');
+%hold on
+%scatter(red6(:),blue6(:),'+');
+%hold on
+%scatter(redb(:),blueb(:),'+');
 hold off
 
 
@@ -65,12 +65,12 @@ scatter(green(:),red(:),'+');
 title('X: Green, Y: Red');
 hold on
 scatter(green4(:),red4(:),'+');
-hold on 
-scatter(green5(:),red5(:),'+');
-hold on
-scatter(green6(:),red6(:),'+');
-hold on
-scatter(greenb(:),redb(:),'+');
+%hold on 
+%scatter(green5(:),red5(:),'+');
+%hold on
+%scatter(green6(:),red6(:),'+');
+%hold on
+%scatter(greenb(:),redb(:),'+');
 hold off
 
 subplot(2,2,3);
@@ -78,12 +78,12 @@ scatter(blue(:),green(:),'+');
 title('X: Blue, Y: Green');
 hold on
 scatter(blue4(:),green4(:),'+');
-hold on 
-scatter(blue5(:),green5(:),'+');
-hold on
-scatter(blue6(:),green6(:),'+');
-hold on
-scatter(blueb(:),greenb(:),'+');
+%hold on 
+%scatter(blue5(:),green5(:),'+');
+%hold on
+%scatter(blue6(:),green6(:),'+');
+%hold on
+%scatter(blueb(:),greenb(:),'+');
 hold off
 
 
