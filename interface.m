@@ -90,12 +90,12 @@ video = VideoReader('images/TrainingVideo.avi');
 while hasFrame(video)
     vidFrame = readFrame(video);
     image(vidFrame,'Parent',handles.axes1);
-    if counter==10
+    if counter==1
         image(calculate(vidFrame),'Parent',handles.axes2);
         counter = 0;
     end
     axes1.Visible='off';
-    pause(0.05);
+    pause(0.1);
     counter= counter + 1;
 end
 
