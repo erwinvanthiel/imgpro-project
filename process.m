@@ -1,16 +1,16 @@
 function process = process( image )
 %PROCESS Summary of this function goes here
 %   Detailed explanation goes here
-image2 = calculate(imread('images/sc2.jpg'));
-image4 = calculate(imread('images/yellow21.jpg'));
-image5 = calculate(imread('images/sc4.jpg'));
-image6 = calculate(imread('images/sc3.jpg'));
-image7 = calculate(imread('images/sc2.jpg'));
-image3 = calculate(imread('images/sc1.JPG'));
+image2 = (imread('images/10.jpg'));
+image4 = (imread('images/11.jpg'));
+image5 = (imread('images/12.jpg'));
+image6 = (imread('images/13.jpg'));
+image7 = (imread('images/14.jpg'));
+image3 = (imread('images/15.JPG'));
 
-r = image3(:,:,1);
-g = image3(:,:,2);
-b = image3(:,:,3);
+r = image2(:,:,1);
+g = image2(:,:,2);
+b = image2(:,:,3);
 
 rlower = r<214;
 rup = r>196;

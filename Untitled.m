@@ -1,3 +1,4 @@
+%sc1
 blackwhite = license_Pro(calculate(imread('images/sc4.JPG')));
 subplot(2,2,1);
 imagesc(uint8(blackwhite));
