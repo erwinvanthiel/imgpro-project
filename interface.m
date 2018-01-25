@@ -95,7 +95,7 @@ while hasFrame(video)
         counter = 0;
     end
     axes1.Visible='off';
-    pause(0.1);
+    pause(0.05);
     counter= counter + 1;
 end
 
