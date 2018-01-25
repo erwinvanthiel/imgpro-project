@@ -1,17 +1,17 @@
-blackwhite = calculate(imread('images/drie.JPG'));
+blackwhite = license_Pro(calculate(imread('images/sc4.JPG')));
 subplot(2,2,1);
 imagesc(uint8(blackwhite));
 %sc2
-blackwhite = calculate(imread('images/sc2.JPG'));
+blackwhite = license_Pro(calculate(imread('images/sc2.JPG')));
 subplot(2,2,2);
 imagesc(uint8(blackwhite));
 
 %sc3
-blackwhite = calculate(imread('images/een.JPG'));
+blackwhite = license_Pro(calculate(imread('images/een.JPG')));
 subplot(2,2,3);
 imagesc(uint8(blackwhite));
 
 %sc4
-blackwhite = calculate(imread('images/sc4.JPG'));
+blackwhite = license_Pro(calculate(imread('images/sc4.JPG')));
 subplot(2,2,4);
 imagesc(uint8(blackwhite));
