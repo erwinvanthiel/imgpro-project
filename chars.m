@@ -25,5 +25,9 @@ im_x = imread('images/x.jpg');
 im_v = imread('images/v.jpg');
 im_b = imread('images/b.jpg');
 im_n = imread('images/n.jpg');
+im_streepje = imread('images/-.jpg');
+charsIm = {im_1, im_2, im_3, im_4, im_5, im_6, im_7, im_8, im_9, im_b, im_d, im_f, im_g, im_h, im_j, im_k, im_l, im_n, im_p, im_r, im_s, im_t, im_v, im_w, im_x, im_z,im_streepje};
+indeces = ['1' '2' '3' '4' '5' '6' '7' '8' '9' 'B' 'D' 'F' 'G' 'H' 'J' 'K' 'L' 'N' 'P' 'R' 'S' 'T' 'V' 'W' 'X' 'Z' '-'];
+
 
 

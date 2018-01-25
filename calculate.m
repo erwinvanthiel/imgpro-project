@@ -68,9 +68,12 @@ calculate = imrotate(uint8(calculate),angle);
 calculate(all(~calculate,2),:) = [];
 calculate(:,all(~calculate,1)) = [];
 calculate = uint8(opening(uint8(calculate),3));
-calculate = calculate(size(calculate,1)/7:size(calculate,1)-size(calculate,1)/7, size(calculate,1)/11:size(calculate,2)-size(calculate,1)/11);
-blankimage = ones(size(calculate)).*255;
-calculate = cat(3,uint8(blankimage).*calculate,uint8(blankimage).*calculate,uint8(blankimage).*calculate);
+rowbound = floor(size(calculate,1)/7);
+columnbound = floor(size(calculate,1)/11);
+calculate = calculate(rowbound:size(calculate,1)-rowbound, columnbound:size(calculate,2)-columnbound);
+calculate = bwareafilt(~logical(calculate),8);
+% blankimage = ones(size(calculate)).*255;
+% calculate = cat(3,uint8(blankimage).*calculate,uint8(blankimage).*calculate,uint8(blankimage).*calculate);
 toc
 end
 
