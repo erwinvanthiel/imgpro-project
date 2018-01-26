@@ -142,7 +142,6 @@ while hasFrame(video)
         else
             plates = {};
             matches = strfind(plates,plate);
-            any(horzcat(matches{:}))==0
             row = {plate, frame, video.currentTime};
             table = [table; row];
             handles.uitable1.Data = table;
