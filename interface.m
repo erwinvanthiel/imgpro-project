@@ -118,6 +118,7 @@ varargout{1} = handles.output;
 
 % --- Executes on button press in pushbutton1.
 function pushbutton1_Callback(hObject, eventdata, handles)
+tic
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -131,13 +132,13 @@ frame = 0;
 while hasFrame(video)
     frame = frame + 1;
     vidFrame = readFrame(video);
-    image(vidFrame,'Parent',handles.axes1);
-    if counter==2
-        %image(calculate(vidFrame).*255,'Parent',handles.axes2);
+    %image(vidFrame,'Parent',handles.axes1);
+    if counter==5
+        image(calculate(vidFrame).*255,'Parent',handles.axes2);
         
         plate = license_Pro(calculate(vidFrame),handles.charsIm,handles.indeces);
         matches = strfind(plates,plate);
-        if  any(horzcat(matches{:}))==0
+        if  any(horzcat(matches{:}))==0;
             plates{length(plates) + 1} = plate;
         else
             plates = {};
@@ -150,10 +151,9 @@ while hasFrame(video)
          
         %add plate to table if not it not already has plate
     end
-    axes1.Visible='off';
     counter= counter + 1;
 end
-
+toc
 checkSolution(table, 'trainingSolutions.mat');
 
 

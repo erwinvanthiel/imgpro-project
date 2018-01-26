@@ -1,5 +1,5 @@
 function calculate = calculate( image)
-tic
+
 
 r = image(:,:,1);
 g = image(:,:,2);
@@ -74,6 +74,6 @@ calculate = calculate(rowbound:size(calculate,1)-rowbound, columnbound:size(calc
 calculate = bwareafilt(~logical(calculate),8);
 % blankimage = ones(size(calculate)).*255;
 % calculate = cat(3,uint8(blankimage).*calculate,uint8(blankimage).*calculate,uint8(blankimage).*calculate);
-toc
+
 end
 
