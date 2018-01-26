@@ -86,7 +86,7 @@ for i=1:length(charsIm)
     charImage = uint8(~threshold(rgb2gray(charImage)));
     charImage(all(~charImage,2),:) = [];
     charImage(:,all(~charImage,1)) = [];
-    charsIm{i} = imresize(charImage, [80, 54]);
+    charsIm{i} = imresize(charImage, [80, 40]);
 end
 handles.charsIm = charsIm;
 handles.indeces = indeces;
@@ -137,8 +137,12 @@ while hasFrame(video)
         image(calculate(vidFrame).*255,'Parent',handles.axes2);
         
         plate = license_Pro(calculate(vidFrame),handles.charsIm,handles.indeces);
+        
+        
+        plate = correct(plate);
+        
         matches = strfind(plates,plate);
-        if  any(horzcat(matches{:}))==0;
+        if  any(horzcat(matches{:}))==0
             plates{length(plates) + 1} = plate;
         else
             plates = {};
