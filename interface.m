@@ -132,7 +132,7 @@ frame = 0;
 while hasFrame(video)
     frame = frame + 1;
     vidFrame = readFrame(video);
-    %image(vidFrame,'Parent',handles.axes1);
+    image(vidFrame,'Parent',handles.axes1);
     if counter==5
         image(calculate(vidFrame).*255,'Parent',handles.axes2);
         
@@ -148,8 +148,17 @@ while hasFrame(video)
             plates = {};
             matches = strfind(plates,plate);
             row = {plate, frame, video.currentTime};
-            table = [table; row];
-            handles.uitable1.Data = table;
+            
+            if size(table)>0
+                [n,m] = size(table);
+                if  1-isequal(table{n}, plate)
+                    table = [table; row];
+                    handles.uitable1.Data = table;
+                end
+            else
+                table = [table; row];
+                handles.uitable1.Data = table;
+            end
         end
         counter = 0;
          
