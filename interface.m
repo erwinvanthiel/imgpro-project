@@ -141,7 +141,8 @@ while hasFrame(video)
             plates{length(plates) + 1} = plate;
         else
             plates = {};
-            any(horzcat(strfind(table,plate)))==0
+            matches = strfind(plates,plate);
+            any(horzcat(matches{:}))==0
             row = {plate, frame, video.currentTime};
             table = [table; row];
             handles.uitable1.Data = table;
@@ -154,7 +155,7 @@ while hasFrame(video)
     counter= counter + 1;
 end
 
-
+checkSolution(table, 'trainingSolutions.mat');
 
 
 % --- Executes on selection change in listbox1.
