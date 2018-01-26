@@ -1,6 +1,6 @@
 function license_Pro = license_Pro( image,charsA,inde )
 if max(image(:))==0
-    license_Pro = '02-BBG-7';
+    license_Pro = '';
     return
 end
 holdImage = rot90(label(rot90(image,3)));
@@ -11,7 +11,7 @@ for i=1:length(data)
       singleChar = uint8(holdImage == i);
       singleChar(all(~singleChar,2),:) = [];
       singleChar(:,all(~singleChar,1)) = [];
-      singleChar = imresize(singleChar, [80, 54]);
+      singleChar = imresize(singleChar, [80, 40]);
       holder = strcat(holder,charFound(singleChar,charsA,inde));
 end
 
