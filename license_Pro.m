@@ -23,8 +23,9 @@ for i=1:length(data)
 end
 
 if length(strfind(holder,'-'))==2 && length(holder)==8
-    license_Pro = holder
+    license_Pro = holder;
+    return;
 end
-license_Pro = holder;
+license_Pro = '';
 end
 

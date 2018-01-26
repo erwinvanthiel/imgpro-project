@@ -124,22 +124,36 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 axes(handles.axes1);
 axes(handles.axes2);
 counter = 0;
-FrameRate = 1;
 video = VideoReader('images/TrainingVideo.avi');
+plates = {};
+table = {};
+frame = 0;
 while hasFrame(video)
+    frame = frame + 1;
     vidFrame = readFrame(video);
     image(vidFrame,'Parent',handles.axes1);
-    if counter==1
-        image(calculate(vidFrame).*255,'Parent',handles.axes2);
-        license_Pro(calculate(vidFrame),handles.charsIm,handles.indeces);
+    if counter==2
+        %image(calculate(vidFrame).*255,'Parent',handles.axes2);
+        
+        plate = license_Pro(calculate(vidFrame),handles.charsIm,handles.indeces);
+        matches = strfind(plates,plate);
+        if  any(horzcat(matches{:}))==0
+            plates{length(plates) + 1} = plate;
+        else
+            plates = {};
+            any(horzcat(strfind(table,plate)))==0
+            row = {plate, frame, video.currentTime};
+            table = [table; row];
+            handles.uitable1.Data = table;
+        end
         counter = 0;
+         
+        %add plate to table if not it not already has plate
     end
     axes1.Visible='off';
-    pause(0.1);
     counter= counter + 1;
 end
 
-start(vid);
 
 
 
