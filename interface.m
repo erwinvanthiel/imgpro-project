@@ -86,7 +86,7 @@ for i=1:length(charsIm)
     charImage = uint8(~threshold(rgb2gray(charImage)));
     charImage(all(~charImage,2),:) = [];
     charImage(:,all(~charImage,1)) = [];
-    charsIm{i} = imresize(charImage, [80, 40]);
+    charsIm{i} = imresize(charImage, [80, 50]);
 end
 handles.charsIm = charsIm;
 handles.indeces = indeces;
@@ -167,7 +167,7 @@ while hasFrame(video)
     counter= counter + 1;
 end
 toc
-checkSolution(table, 'trainingSolutions.mat');
+checkSolution(table, 'TrainingSolutions.mat');
 
 
 % --- Executes on selection change in listbox1.

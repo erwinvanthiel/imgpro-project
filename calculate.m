@@ -35,16 +35,17 @@ if double(max(calculate(:)))==0
         calculate = zeros(100,100);
    return
 end   
-calculate = (double(calculate)./double(max(calculate(:)))).*255; 
 calculate(all(~calculate,2),:) = [];
 calculate(:,all(~calculate,1)) = []; 
+calculate = (double(calculate)./double(max(calculate(:)))).*255; 
 calculate = threshold(calculate,'fixed',140);
 if size(calculate,1) < 21 | size(calculate,2) < 21
     calculate = zeros(100,100);
    return
 end
-firstC = uint8(calculate(20,:));
-lastC = uint8(calculate(size(calculate,1)-20,:));
+floorRow = floor(size(calculate,1)/13);
+firstC = uint8(calculate(floorRow,:));
+lastC = uint8(calculate(size(calculate,1)-floorRow,:));
 indexFirst = 0;
 indexLast = 0;
 for i=1:1:size(calculate,2)-1
@@ -72,8 +73,8 @@ rowbound = floor(size(calculate,1)/5);
 columnbound = floor(size(calculate,1)/9);
 calculate = calculate(rowbound:size(calculate,1)-rowbound, columnbound:size(calculate,2)-columnbound);
 calculate = bwareafilt(~logical(calculate),8);
-% blankimage = ones(size(calculate)).*255;
-% calculate = cat(3,uint8(blankimage).*calculate,uint8(blankimage).*calculate,uint8(blankimage).*calculate);
+% % blankimage = ones(size(calculate)).*255;
+% % calculate = cat(3,uint8(blankimage).*calculate,uint8(blankimage).*calculate,uint8(blankimage).*calculate);
 
 end
 

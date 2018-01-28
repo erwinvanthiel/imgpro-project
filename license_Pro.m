@@ -11,7 +11,7 @@ for i=1:length(data)
       singleChar = uint8(holdImage == i);
       singleChar(all(~singleChar,2),:) = [];
       singleChar(:,all(~singleChar,1)) = [];
-      singleChar = imresize(singleChar, [80, 40]);
+      singleChar = imresize(singleChar, [80, 50]);
       holder = strcat(holder,charFound(singleChar,charsA,inde));
 end
 
