@@ -132,7 +132,7 @@ frame = 0;
 while hasFrame(video)
     frame = frame + 1;
     vidFrame = readFrame(video);
-    image(vidFrame,'Parent',handles.axes1);
+    %image(vidFrame,'Parent',handles.axes1);
     if counter==5
         image(calculate(vidFrame).*255,'Parent',handles.axes2);
         
@@ -156,7 +156,7 @@ while hasFrame(video)
     counter= counter + 1;
 end
 toc
-checkSolution(table, 'TrainingSolutions.mat');
+checkSolution(table, 'TrainingSolutions.mat')
 
 
 % --- Executes on selection change in listbox1.
