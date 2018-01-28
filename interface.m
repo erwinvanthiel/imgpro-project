@@ -148,21 +148,10 @@ while hasFrame(video)
             plates = {};
             matches = strfind(plates,plate);
             row = {plate, frame, video.currentTime};
-            
-            if size(table)>0
-                [n,m] = size(table);
-                if  1-isequal(table{n}, plate)
-                    table = [table; row];
-                    handles.uitable1.Data = table;
-                end
-            else
-                table = [table; row];
-                handles.uitable1.Data = table;
-            end
+            table = [table; row];
+            handles.uitable1.Data = table;
         end
         counter = 0;
-         
-        %add plate to table if not it not already has plate
     end
     counter= counter + 1;
 end
